@@ -1,4 +1,4 @@
-window.addEventListener("load", function () {
+//window.addEventListener("load", function () {
 
   const jobs = [
         { title: "Marketing Intern", location: "US, NY, New York" },
@@ -87,25 +87,48 @@ window.addEventListener("load", function () {
         },
       ]
 
-  const jobSearcher = function (posizione, località) {
+  const jobSearcher = function (posizione, localita) {
 
     let risultatiDiRicerca = {  // al'inizio creo il mio oggetto vuoto
     results:[],
-    count: 0,
+    counts: 0,
     }
 
     for(let i=0; i<jobs.length; i++){
       let lavoro = jobs[i]                   //visto che la mia ricerca va fatta su un array di oggetti, per poter usare for devo "raggruppare" l'oggetto in una variabile singola
-      if(lavoro.title.toLowerCase().includes(posizione.toLowerCase()) && lavoro.location.toLowerCase().includes(località.toLowerCase())){
+      if(lavoro.title.toLowerCase().includes(posizione.toLowerCase()) && lavoro.location.toLowerCase().includes(localita.toLowerCase())){
         risultatiDiRicerca.results.push()
         risultatiDiRicerca.counts++
-        console.log(risultatiDiRicerca)// ora controllo che la posizione e la località che cerco, devono essere contenuti entrambi all'interno dei singoli oggetti all'interno di jobs.
+        // ora controllo che la posizione e la località che cerco, devono essere contenuti entrambi all'interno dei singoli oggetti all'interno di jobs.
     }  
     
     return risultatiDiRicerca
   }
+  console.log(risultatiDiRicerca)
 }
 
+const aggiungiRecord = function() {
+  
+let posizione = document.querySelector('#jobTitle').value
+let localita = document.querySelector('#location').value
+  
+let rigaRisultati = document.querySelector('#rigaRisultati')
+  
+for (let i = 0; i < jobSearcher(posizione, localita).results.length; i++) {
+  
+  const lavoro = jobSearcher(posizione, localita).results[i]
 
+let cellaLavoro = document.createElement('td')
+let cellaLocalita = document.createElement('td')
 
-})
+  cellaLavoro.innerText = posizione
+  cellaLocalita.innerText = localita
+  
+  rigaRisultati.appenChild(cellaLavoro)
+  rigaRisultati.insertBefore(cellaLocalita, cellaLavoro)
+  
+}
+}
+
+let cerca = document.querySelector('#submit')
+cerca.addEventListener('click', aggiungiRecord)
