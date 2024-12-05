@@ -1,6 +1,6 @@
 window.addEventListener("load", function () {
 
-    const jobs = [
+  const jobs = [
         { title: "Marketing Intern", location: "US, NY, New York" },
         {
           title: "Customer Service - Cloud Video Production",
@@ -87,24 +87,24 @@ window.addEventListener("load", function () {
         },
       ]
 
-const jobSearcher = function (title, location) {
-    for (let i=0; i<=jobs.length; i++){
-        let job = title[i].toLowerCase;
+  const jobSearcher = function (posizione, località) {
+
+    let risultatiDiRicerca = {  // al'inizio creo il mio oggetto vuoto
+    results:[],
+    count: 0,
     }
+
+    for(let i=0; i<jobs.length; i++){
+      let lavoro = jobs[i]                   //visto che la mia ricerca va fatta su un array di oggetti, per poter usare for devo "raggruppare" l'oggetto in una variabile singola
+      if(lavoro.title.toLowerCase().includes(posizione.toLowerCase()) && lavoro.location.toLowerCase().includes(località.toLowerCase())){
+        risultatiDiRicerca.results.push()
+        risultatiDiRicerca.counts++
+        console.log(risultatiDiRicerca)// ora controllo che la posizione e la località che cerco, devono essere contenuti entrambi all'interno dei singoli oggetti all'interno di jobs.
+    }  
+    
+    return risultatiDiRicerca
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
