@@ -14,23 +14,24 @@
         <div id="form">
             <form>
                 <div class="input">
-                <p>Posizione lavorativa</p>
-                <input type="text" name="Posizione" id="jobTitle" placeholder = "inserisci posizione">>
-            </div>
-            <div class="input">
-                <p>Località</p>
-                <input type="text" name="Località" id="Location" placeholder = "inserisci località">>
-            </div>
-                <button type="submit">Cerca</button>
+                    <label for="jobtitle">Posizione lavorativa</label><br>
+                    <input type="text" name="Posizione" id="jobTitle" placeholder="inserisci posizione">
+                </div>
+                <div class="input">
+                    <label for="location">Località</label><br>
+                    <input type="text" name="Localita" id="location" placeholder="inserisci località">
+                </div>
+                <button type="button" id="submit">Cerca</button>
             </form>
         </div>
-        <div id="Table">
-            <table>
-                <tr>
-                    <th>Numero</th>
+        <div id="tabella">
+            <table id="tabellaRisultati">
+                <thead>
                     <th>Posizione Lavorativa</th>
                     <th>Località</th>
-                </tr>
+                </thead>
+                <tbody id="rigaRisultati">
+                </tbody>
             </table>
         </div>
     </main>
