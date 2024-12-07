@@ -95,9 +95,9 @@ const jobSearcher = function (posizione, localita) {
   }
 
   for (let i = 0; i < jobs.length; i++) {
-    let lavoro = jobs[i]                   //visto che la mia ricerca va fatta su un array di oggetti, per poter usare for devo "raggruppare" l'oggetto in una variabile singola
-    if (lavoro.title.toLowerCase().includes(posizione.toLowerCase()) && lavoro.location.toLowerCase().includes(localita.toLowerCase())) {
-      risultatiDiRicerca.results.push()
+    let job = jobs[i]                   //visto che la mia ricerca va fatta su un array di oggetti, per poter usare for devo "raggruppare" l'oggetto in una variabile singola
+    if (job.title.toLowerCase().includes(posizione.toLowerCase()) && job.location.toLowerCase().includes(localita.toLowerCase())) {
+      risultatiDiRicerca.results.push(job)
       risultatiDiRicerca.counts++
 
       // CI STA UN probleman nell'if ora controllo che la posizione e la località che cerco, devono essere contenuti entrambi all'interno dei singoli oggetti all'interno di jobs.
@@ -114,25 +114,27 @@ const aggiungiRecord = function () {
  
   let posizione = document.querySelector('#jobTitle').value
   let localita = document.querySelector('#location').value
+
   console.log(" stiamo guardando il" + posizione + localita)
+  
   let rigaRisultati = document.querySelector('#rigaRisultati')
 
-  let ricercaLavoro = jobSearcher(posizione, localita).results.length
+  let jobSearcherResults = jobSearcher(posizione, localita).results.length  //accorpo il risultato di jobSearcher in una variabile per comodità
 
-  for (let i = 0; i < ricercaLavoro; i++) {
+  for (let i = 0; i < jobSearcherResults; i++) {
 
-   const lavoro = jobSearcher(posizione, localita).results[i]
+   const lavoro = jobSearcherResults[i] // accorpo l'indice di jobSearcherResults in una variabile per comodità
 
     let cellaLavoro = document.createElement('td')
-    let cellaLocalita = document.createElement('td')
+    let cellaLocalita = document.createElement('td')  // creo le celle
 
     cellaLavoro.innerText = lavoro.title
-    cellaLocalita.innerText = lavoro.location
+    cellaLocalita.innerText = lavoro.location   // le popolo con il risultato della ricerca
 
-    rigaRisultati.appenChild(cellaLavoro)
-    rigaRisultati.appenChild(cellaLocalita)
-
+    rigaRisultati.appenChild(cellaLavoro)     // le inserisco una dopo l'altra
+    rigaRisultati.appenChild(cellaLocalita)    
   }
+  console.log (jobSearcherResults)
 }
 
 let cerca = document.querySelector('#submit')
