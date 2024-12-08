@@ -100,12 +100,11 @@ const jobSearcher = function (jobTitle, jobLocation) {
       risultatiDiRicerca.results.push(job)
       risultatiDiRicerca.counts++
 
-      // CI STA UN probleman nell'if ora controllo che la posizione e la località che cerco, devono essere contenuti entrambi all'interno dei singoli oggetti all'interno di jobs.
-    }
-
+    }       //così controllo che la posizione e la località che cerco, devono essere contenuti entrambi all'interno dei singoli oggetti all'interno di jobs.
 
   }
   console.log(risultatiDiRicerca) // il console log prima del return
+  
   return risultatiDiRicerca
 
 }
@@ -115,30 +114,29 @@ const aggiungiRecord = function () {
   let posizione = document.querySelector('#jobTitle').value
   let localita = document.querySelector('#location').value
 
-  console.log(" stiamo guardando" + posizione + " " + localita)
+  console.log(" stiamo guardando" +"  " + posizione + " " + localita)
 
   let rigaRisultati = document.querySelector('#rigaRisultati')
 
-
-  const jobSearcherResults = jobSearcher(posizione, localita) //accorpo il risultato di jobSearcher in una variabile per comodità
-
+  const jobSearcherResults = jobSearcher(posizione, localita)
+  console.log(jobSearcherResults)//accorpo il risultato di jobSearcher in una variabile per comodità
 
   for (let i = 0; i < jobSearcherResults.results.lenght; i++) {
 
-    const lavoro = jobSearcherResults.results.length[i] // accorpo l'indice di jobSearcherResults in una variabile per comodità
+    const lavoro = jobSearcherResults.results[i] // accorpo l'indice di jobSearcherResults in una variabile per comodità
 
     let cellaLavoro = document.createElement('td')
-    let cellaLocalita = document.createElement('td')  // creo le celle
+    let cellaLocalita = document.createElement('td') // creo le celle
+    
 
     cellaLavoro.innerText = lavoro.title
     cellaLocalita.innerText = lavoro.location   // le popolo con il risultato della ricerca
+    console.log(lavoro.title + " " + lavoro.location)
 
-    console.log(cellaLavoro + " " + cellaLocalita)
 
     rigaRisultati.appenChild(cellaLavoro)     // le inserisco una dopo l'altra
     rigaRisultati.appenChild(cellaLocalita)
   }
-  console.log(jobSearcherResults)
 }
 
 let cerca = document.querySelector('#submit')
