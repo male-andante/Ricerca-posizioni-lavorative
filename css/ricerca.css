@@ -52,10 +52,26 @@ form{
     margin: 2em 0;
 }
 
-#tabella{
+/*thead{
     display: flex;
     justify-content: center;
     padding: 1em;
-    background-color: lightblue;
+    margin: 1em;
+    border-radius: 0.5em;
+    border: solid grey;
+    background-color: #ededed;
+    width: 100%;
 }
+
+th{
+    padding: 0 2em;
+}
+
+td{
+/*display: flex;
+flex-wrap: wrap;
+width: 50%; */
+
+
+    
 

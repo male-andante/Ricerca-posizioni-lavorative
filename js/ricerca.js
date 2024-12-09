@@ -103,13 +103,13 @@ const jobSearcher = function (jobTitle, jobLocation) {
     }       //così controllo che la posizione e la località che cerco, devono essere contenuti entrambi all'interno dei singoli oggetti all'interno di jobs.
 
   }
-  console.log(risultatiDiRicerca) // il console log prima del return
+  // console.log(risultatiDiRicerca) il console log prima del return
   
   return risultatiDiRicerca
 
 }
 
-//AggiungiRecord Lista
+/* AggiungiRecord Lista
 const aggiungiRecord = function () {
 
   let posizione = document.querySelector('#jobTitle').value
@@ -122,54 +122,55 @@ const aggiungiRecord = function () {
   const jobSearcherResults = jobSearcher(posizione, localita)
   console.log(jobSearcherResults)//accorpo il risultato di jobSearcher in una variabile per comodità
 
-  for (let i = 0; i < jobSearcherResults.results.lenght; i++) {
+  for (let i = 0; i < jobSearcherResults.results.length; i++) {
 
     const lavoro = jobSearcherResults.results[i] // accorpo l'indice di jobSearcherResults in una variabile per comodità
 
     let recordRisultato = document.createElement('li')
-    recordRisultato.innerText = lavoro.title + " " + lavoro.location   // le popolo con il risultato della ricerca
+    recordRisultato.innerHTML = lavoro.title + " " + lavoro.location   // le popolo con il risultato della ricerca
     
     console.log(lavoro.title + " " + lavoro.location)
 
 
-    listaRisultati.appenChild(recordRisultato)     // le inserisco una dopo l'altra
+    listaRisultati.appendChild(recordRisultato)     // le inserisco una dopo l'altra
   }
-}
-
-const cerca = document.querySelector('#submit')
-cerca.addEventListener('click', aggiungiRecord)
+}*/
 
 
 
-/* aggiungiRecord Tabella
+// aggiungiRecord Tabella
 const aggiungiRecord = function () {
 
   let posizione = document.querySelector('#jobTitle').value
   let localita = document.querySelector('#location').value
 
-  console.log(" stiamo guardando" +"  " + posizione + " " + localita)
+  // console.log(" stiamo guardando" +"  " + posizione + " " + localita)
 
-  let rigaRisultati = document.querySelector('#rigaRisultati')
+  let tbodyRisultati = document.querySelector('#tabellaRisultati tbody')
 
   const jobSearcherResults = jobSearcher(posizione, localita)
-  console.log(jobSearcherResults)//accorpo il risultato di jobSearcher in una variabile per comodità
+  // console.log(jobSearcherResults) accorpo il risultato di jobSearcher in una variabile per comodità
 
-  for (let i = 0; i < jobSearcherResults.results.lenght; i++) {
+  for (let i = 0; i < jobSearcherResults.results.length; i++) {
 
     const lavoro = jobSearcherResults.results[i] // accorpo l'indice di jobSearcherResults in una variabile per comodità
-
+    let rigaRisultati = document.createElement('tr');
     let cellaLavoro = document.createElement('td')
     let cellaLocalita = document.createElement('td') // creo le celle
     
 
-    cellaLavoro.innerText = lavoro.title
-    cellaLocalita.innerText = lavoro.location   // le popolo con il risultato della ricerca
-    console.log(lavoro.title + " " + lavoro.location)
+    cellaLavoro.textContent = lavoro.title
+    cellaLocalita.textContent = lavoro.location   // le popolo con il risultato della ricerca
+    // console.log(lavoro.title + " " + lavoro.location)
 
 
-    rigaRisultati.appenChild(cellaLavoro)     // le inserisco una dopo l'altra
-    rigaRisultati.appenChild(cellaLocalita)
+    rigaRisultati.appendChild(cellaLavoro)     // le inserisco una dopo l'altra
+    rigaRisultati.appendChild(cellaLocalita)
+
+    tbodyRisultati.appendChild(rigaRisultati)
   }
-}*/
+}
 
+const cerca = document.querySelector('#submit')
+cerca.addEventListener('click', aggiungiRecord)
 
