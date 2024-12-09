@@ -6,9 +6,12 @@ body{
 }
 
 main{
-    display: flex;
+    width: 80%;
+    margin:auto;
+
+    /*display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;*/
 }
 
 .input{
@@ -19,7 +22,7 @@ main{
 
 input{
     margin-top: 0.5em;
-    font-size: 16px;
+    font-size: 1em;
     border-radius: 0.5em;
     border: solid grey;
     padding: 0.5em;
@@ -31,14 +34,14 @@ input{
 }
 
 #submit{
+    padding: 0.6em 2em;
     margin: 1em;
-    padding: 1em 2em;
-    border-radius: 0.5em;
     border: 0;
     background-color: #1b48ef;
     color: white;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1em;
+    cursor: pointer;
 }
 
 #form{
@@ -47,31 +50,56 @@ input{
 
 form{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2em 0;
+  flex-wrap: wrap; /* Adatta gli elementi su più righe se necessario */
+  justify-content: center; /* Centra gli elementi */
+  align-items: center;
+  gap: 15px; /* Spaziatura tra gli elementi */
+  margin: 20px 0; /* Margine superiore e inferiore */
 }
 
-/*thead{
-    display: flex;
-    justify-content: center;
-    padding: 1em;
-    margin: 1em;
-    border-radius: 0.5em;
-    border: solid grey;
-    background-color: #ededed;
+#tabellaRisultati{
     width: 100%;
-}
-
-th{
-    padding: 0 2em;
-}
-
-td{
-/*display: flex;
-flex-wrap: wrap;
-width: 50%; */
-
-
-    
+    border-collapse: collapse; /* Rimuove gli spazi tra i bordi delle celle */
+    margin: 1.2em 0;
+    font-size: 1em;
+    text-align: left;
+  }
+  
+  /* Stile per l'intestazione */
+  table thead tr {
+    background-color: #0441f7; /* Colore di sfondo dell'intestazione */
+    color: #ffffff; /* Colore del testo dell'intestazione */
+    font-weight: bold;
+  }
+  
+  /* Bordi delle celle */
+  table th, table td {
+    border: 1px solid #dddddd; /* Bordo sottile grigio */
+    padding: 0.8em 1em; /* Spaziatura interna */
+  }
+  
+  /* Alternanza di righe */
+  table tbody tr:nth-child(even) {
+    background-color: #f3f3f3; /* Colore di sfondo per le righe pari */
+  }
+  
+  table tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* Colore di sfondo per le righe dispari */
+  }
+  
+  /* Effetto hover */
+  table tbody tr:hover {
+    background-color: #f1f1f1; /* Colore di sfondo quando il cursore passa sopra */
+    cursor: pointer;
+  }
+  
+  /* Allineamento */
+  table th {
+    text-align: center; /* Centra il testo nell'intestazione */
+  }
+  
+  table td {
+    text-align: left; /* Allinea il testo a sinistra per i dati */
+  }
+   
 
