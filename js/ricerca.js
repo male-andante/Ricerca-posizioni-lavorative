@@ -109,6 +109,39 @@ const jobSearcher = function (jobTitle, jobLocation) {
 
 }
 
+//AggiungiRecord Lista
+const aggiungiRecord = function () {
+
+  let posizione = document.querySelector('#jobTitle').value
+  let localita = document.querySelector('#location').value
+
+  //console.log(" stiamo guardando" +"  " + posizione + " " + localita)
+
+  let listaRisultati = document.querySelector('#listaRisultati')
+
+  const jobSearcherResults = jobSearcher(posizione, localita)
+  console.log(jobSearcherResults)//accorpo il risultato di jobSearcher in una variabile per comodità
+
+  for (let i = 0; i < jobSearcherResults.results.lenght; i++) {
+
+    const lavoro = jobSearcherResults.results[i] // accorpo l'indice di jobSearcherResults in una variabile per comodità
+
+    let recordRisultato = document.createElement('li')
+    recordRisultato.innerText = lavoro.title + " " + lavoro.location   // le popolo con il risultato della ricerca
+    
+    console.log(lavoro.title + " " + lavoro.location)
+
+
+    listaRisultati.appenChild(recordRisultato)     // le inserisco una dopo l'altra
+  }
+}
+
+const cerca = document.querySelector('#submit')
+cerca.addEventListener('click', aggiungiRecord)
+
+
+
+/* aggiungiRecord Tabella
 const aggiungiRecord = function () {
 
   let posizione = document.querySelector('#jobTitle').value
@@ -137,7 +170,6 @@ const aggiungiRecord = function () {
     rigaRisultati.appenChild(cellaLavoro)     // le inserisco una dopo l'altra
     rigaRisultati.appenChild(cellaLocalita)
   }
-}
+}*/
 
-const cerca = document.querySelector('#submit')
-cerca.addEventListener('click', aggiungiRecord)
+
