@@ -139,5 +139,5 @@ const aggiungiRecord = function () {
   }
 }
 
-let cerca = document.querySelector('#submit')
+const cerca = document.querySelector('#submit')
 cerca.addEventListener('click', aggiungiRecord)
